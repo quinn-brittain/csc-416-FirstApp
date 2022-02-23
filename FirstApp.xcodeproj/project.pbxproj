@@ -11,6 +11,7 @@
 		2A9AAA3027C5779E00825D5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA2F27C5779E00825D5F /* ContentView.swift */; };
 		2A9AAA3227C577A000825D5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9AAA3127C577A000825D5F /* Assets.xcassets */; };
 		2A9AAA3527C577A000825D5F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9AAA3427C577A000825D5F /* Preview Assets.xcassets */; };
+		2A9AAA4027C6275200825D5F /* ByeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA3F27C6275200825D5F /* ByeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		2A9AAA2F27C5779E00825D5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2A9AAA3127C577A000825D5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A9AAA3427C577A000825D5F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2A9AAA3F27C6275200825D5F /* ByeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				2A9AAA2D27C5779E00825D5F /* FirstAppApp.swift */,
 				2A9AAA2F27C5779E00825D5F /* ContentView.swift */,
+				2A9AAA3F27C6275200825D5F /* ByeView.swift */,
 				2A9AAA3127C577A000825D5F /* Assets.xcassets */,
 				2A9AAA3327C577A000825D5F /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9AAA4027C6275200825D5F /* ByeView.swift in Sources */,
 				2A9AAA3027C5779E00825D5F /* ContentView.swift in Sources */,
 				2A9AAA2E27C5779E00825D5F /* FirstAppApp.swift in Sources */,
 			);
@@ -269,6 +273,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FirstApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 3278MSDFEL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -297,6 +302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FirstApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 3278MSDFEL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
