@@ -7,3 +7,4 @@ Some chapters had extra challenges added as part of an assignment.
 ## List of completed chapters:
 * Section 1: HIITFit
   * [Chapter 1](https://github.com/quinn-brittain/csc-416-apps/edit/chapter1/)
+  * [Chapter 2](https://github.com/quinn-brittain/csc-416-apps/edit/chapter2/)
