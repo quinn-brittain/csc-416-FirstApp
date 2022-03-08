@@ -40,12 +40,14 @@ struct ExerciseView: View {
     let videoNames = ["squat", "step-up", "burpee", "sun-salute"]
     let exerciseNames = ["Squat", "Step Up", "Burpee", "Sun Salute"]
     let index: Int
+    let interval: TimeInterval = 30
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 HeaderView(exerciseName: exerciseNames[index])
                     .padding(.bottom)
-                if let url = Bundle.main.url(forResource: videoNames[index], withExtension: "mp4") {
+                if let url = Bundle.main.url(forResource: videoNames[index],
+                                             withExtension: "mp4") {
                     VideoPlayer(player: AVPlayer(url: url))
                         .frame(height: geometry.size.height * 0.5)
                 } else {
@@ -53,7 +55,8 @@ struct ExerciseView: View {
                         .foregroundColor(.red)
 
                 }
-                Text("Timer")
+                Text(Date().addingTimeInterval(interval), style: .timer)
+                    .font(.system(size: 90))
                 Text("Start/Done button")
                 Text("Rating")
                 Text("History button")
