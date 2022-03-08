@@ -56,6 +56,11 @@ struct ExerciseView: View {
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer)
                     .font(.system(size: 90))
+                    .foregroundColor(Color.white)
+                    .frame(width: geometry.size.width * 0.55,
+                           height: geometry.size.height * 0.15)
+                    .background(Color.black)
+                    .cornerRadius(/*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
                 Button("Start/Done") { }
                     .font(.title3)
                     .padding()
