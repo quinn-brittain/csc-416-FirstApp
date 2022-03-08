@@ -39,6 +39,8 @@ struct RatingView: View {
                 Image(systemName: "waveform.path.ecg")
                     .foregroundColor(.gray)
                     .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
+                    .background(Color.init(red: 1.0, green: 0.349, blue: 0.349))
+                    .cornerRadius(90)
             }
         }
     }
