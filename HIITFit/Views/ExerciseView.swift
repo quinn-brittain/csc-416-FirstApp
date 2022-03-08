@@ -41,6 +41,7 @@ struct ExerciseView: View {
     let exerciseNames = ["Squat", "Step Up", "Burpee", "Sun Salute"]
     let index: Int
     let interval: TimeInterval = 30
+    @State private var presentHistoryAlert = false
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -67,8 +68,13 @@ struct ExerciseView: View {
                 RatingView()
                     .padding()
                 Spacer()
-                Button("History") { }
-                  .padding(.bottom)
+                Button("History") {
+                    presentHistoryAlert = true
+                }
+                .alert(isPresented: $presentHistoryAlert) {
+                    Alert(title: Text("There is no history to show."))
+                }
+                .padding(.bottom)
             }
         }
     }
