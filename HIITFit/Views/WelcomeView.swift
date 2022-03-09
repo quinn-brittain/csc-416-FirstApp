@@ -45,13 +45,18 @@ struct WelcomeView: View {
                     .padding(.bottom)
             }
             VStack {
-                HStack {
+                HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
                         Text("Get fit")
                             .font(.largeTitle)
                         Text("with high intensity interval training")
                             .font(.headline)
                     }
+                    Image("step-up")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 240.0, height: 240.0)
+                        .clipShape(Circle())
                 }
             }
         }
