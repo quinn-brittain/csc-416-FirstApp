@@ -36,11 +36,13 @@
 import SwiftUI
 
 struct SuccessView: View {
+    @Binding var showSuccess: Bool
+
     var body: some View {
         ZStack {
             VStack {
                 Spacer()
-                Button("Continue") { }
+                Button("Continue") { showSuccess.toggle() }
                     .padding(.bottom)
             }
             VStack {
@@ -63,6 +65,6 @@ struct SuccessView: View {
 
 struct SuccessView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessView()
+        SuccessView(showSuccess: .constant(true))
     }
 }

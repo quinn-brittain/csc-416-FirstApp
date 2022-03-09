@@ -42,6 +42,8 @@ struct ExerciseView: View {
     let index: Int
     
     let interval: TimeInterval = 30
+
+    @State private var showSuccess = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -58,14 +60,21 @@ struct ExerciseView: View {
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer)
                     .font(.system(size: 90))
-                Button("Start/Done") { }
-                    .font(.title3)
-                    .padding()
+                Button("Start/Done") {
+                    if index == (exerciseNames.count - 1) {
+                        showSuccess.toggle()
+                    }
+                }
+                .font(.title3)
+                .padding()
+                .sheet(isPresented: $showSuccess) {
+                    SuccessView(showSuccess: $showSuccess)
+                }
                 RatingView()
                     .padding()
                 Spacer()
                 Button("History") { }
-                  .padding(.bottom)
+                    .padding(.bottom)
             }
         }
     }
