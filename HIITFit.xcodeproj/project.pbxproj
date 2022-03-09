@@ -15,6 +15,7 @@
 		2A9AAA5327D85A0100825D5F /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA5227D85A0100825D5F /* SuccessView.swift */; };
 		2A9AAA5527D8667000825D5F /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA5427D8667000825D5F /* Exercise.swift */; };
 		2A9AAA5827D86B0500825D5F /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA5727D86B0400825D5F /* HistoryStore.swift */; };
+		2A9AAA5A27D87A4C00825D5F /* HistoryStoreDevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA5927D87A4C00825D5F /* HistoryStoreDevData.swift */; };
 		CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* HIITFitApp.swift */; };
 		CD30C926251474DC0049DB93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C925251474DC0049DB93 /* ContentView.swift */; };
 		CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C927251474DD0049DB93 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		2A9AAA5227D85A0100825D5F /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		2A9AAA5427D8667000825D5F /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		2A9AAA5727D86B0400825D5F /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
+		2A9AAA5927D87A4C00825D5F /* HistoryStoreDevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreDevData.swift; sourceTree = "<group>"; };
 		CD30C920251474DC0049DB93 /* HIITFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIITFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD30C923251474DC0049DB93 /* HIITFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIITFitApp.swift; sourceTree = "<group>"; };
 		CD30C925251474DC0049DB93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */,
+				2A9AAA5927D87A4C00825D5F /* HistoryStoreDevData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				2A9AAA5327D85A0100825D5F /* SuccessView.swift in Sources */,
 				CD30C926251474DC0049DB93 /* ContentView.swift in Sources */,
 				2A9AAA5827D86B0500825D5F /* HistoryStore.swift in Sources */,
+				2A9AAA5A27D87A4C00825D5F /* HistoryStoreDevData.swift in Sources */,
 				2A9AAA4B27D727E400825D5F /* RatingView.swift in Sources */,
 				CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */,
 				2A9AAA5527D8667000825D5F /* Exercise.swift in Sources */,
