@@ -8,7 +8,7 @@ Some chapters had extra challenges added as part of an assignment.
 * Section 1: HIITFit
   * [Chapter 1](https://github.com/quinn-brittain/csc-416-apps/tree/chapter1/)
   * [Chapter 2](https://github.com/quinn-brittain/csc-416-apps/tree/chapter2/)
-  * [Chapter 2](https://github.com/quinn-brittain/csc-416-apps/tree/chapter3/)
-  * [Chapter 2](https://github.com/quinn-brittain/csc-416-apps/tree/chapter4/)
-  * [Chapter 2](https://github.com/quinn-brittain/csc-416-apps/tree/chapter5/)
-  * [Chapter 2](https://github.com/quinn-brittain/csc-416-apps/tree/chapter6/)
+  * [Chapter 3](https://github.com/quinn-brittain/csc-416-apps/tree/chapter3/)
+  * [Chapter 4](https://github.com/quinn-brittain/csc-416-apps/tree/chapter4/)
+  * [Chapter 5](https://github.com/quinn-brittain/csc-416-apps/tree/chapter5/)
+  * [Chapter 6](https://github.com/quinn-brittain/csc-416-apps/tree/chapter6/)
