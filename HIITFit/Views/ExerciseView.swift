@@ -46,6 +46,7 @@ struct ExerciseView: View {
     }
     @State private var rating = 0
     @State private var showHistory = false
+    @State private var showSuccess = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -67,7 +68,14 @@ struct ExerciseView: View {
                 HStack(spacing: 150) {
                     Button("Start Exercise") { }
                     Button("Done") {
-                        selectedTab = lastExercise ? 9 : selectedTab + 1
+                        if lastExercise {
+                            showSuccess.toggle()
+                        } else {
+                            selectedTab += 1
+                        }
+                    }
+                    .sheet(isPresented: $showSuccess) {
+                        SuccessView()
                     }
                 }
                 .font(.title3)
@@ -89,6 +97,6 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(selectedTab: .constant(1), index: 0)
+        ExerciseView(selectedTab: .constant(3), index: 3)
     }
 }
