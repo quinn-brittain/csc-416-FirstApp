@@ -37,9 +37,13 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
+    @Binding var selectedTab: Int
     let index: Int
     
     let interval: TimeInterval = 30
+    var lastExercise: Bool {
+        index + 1 == Exercise.exercises.count
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -57,9 +61,14 @@ struct ExerciseView: View {
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer)
                     .font(.system(size: 90))
-                Button("Start/Done") { }
-                    .font(.title3)
-                    .padding()
+                HStack(spacing: 150) {
+                    Button("Start Exercise") { }
+                    Button("Done") {
+                        selectedTab = lastExercise ? 9 : selectedTab + 1
+                    }
+                }
+                .font(.title3)
+                .padding()
                 RatingView()
                     .padding()
                 Spacer()
@@ -72,6 +81,6 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(index: 0)
+        ExerciseView(selectedTab: .constant(1), index: 0)
     }
 }
