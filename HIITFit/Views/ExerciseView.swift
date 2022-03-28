@@ -44,6 +44,7 @@ struct ExerciseView: View {
     var lastExercise: Bool {
         index + 1 == Exercise.exercises.count
     }
+    @State private var rating = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -70,7 +71,7 @@ struct ExerciseView: View {
                 }
                 .font(.title3)
                 .padding()
-                RatingView()
+                RatingView(rating: $rating)
                     .padding()
                 Spacer()
                 Button("History") { }
