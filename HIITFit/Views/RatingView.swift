@@ -37,7 +37,18 @@ import SwiftUI
 
 struct RatingView: View {
     let exerciseIndex: Int
-    @AppStorage("ratings") private var ratings = "4000"
+    init(exerciseIndex: Int) {
+        self.exerciseIndex = exerciseIndex
+        let desiredLength = Exercise.exercises.count
+        if ratings.count < desiredLength {
+            ratings = ratings.padding(
+                toLength: desiredLength,
+                withPad: "0",
+                startingAt: 0)
+        }
+    }
+
+    @AppStorage("ratings") private var ratings = ""
     @State private var rating = 0
 
     func updateRating(index: Int) {
