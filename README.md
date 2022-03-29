@@ -12,3 +12,5 @@ Some chapters had extra challenges added as part of an assignment.
   * [Chapter 4](https://github.com/quinn-brittain/csc-416-apps/tree/chapter4/)
   * [Chapter 5](https://github.com/quinn-brittain/csc-416-apps/tree/chapter5/)
   * [Chapter 6](https://github.com/quinn-brittain/csc-416-apps/tree/chapter6/)
+  * [Chapter 7](https://github.com/quinn-brittain/csc-416-apps/tree/chapter7/)
+  * [Chapter 8](https://github.com/quinn-brittain/csc-416-apps/tree/chapter8/)
