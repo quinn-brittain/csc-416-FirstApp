@@ -44,7 +44,6 @@ struct ExerciseView: View {
 
     @State private var timerDone = false
     @State private var showTimer = false
-    @State private var rating = 0
     @State private var showHistory = false
     var lastExercise: Bool {
         index + 1 == Exercise.exercises.count
@@ -91,7 +90,7 @@ struct ExerciseView: View {
                     TimerView(timerDone: $timerDone)
                 }
                 Spacer()
-                RatingView(rating: $rating)
+                RatingView(exerciseIndex: index)
                     .padding()
                 Button("History") {
                     showHistory.toggle()
