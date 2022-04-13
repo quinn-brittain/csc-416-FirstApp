@@ -64,6 +64,11 @@ struct HIITFitApp: App {
                         support@xyz.com
                       """))
                 }
+                .onAppear {
+                    print(">>> Info: App Documents Directory:", FileManager.default.urls(
+                        for: .documentDirectory,
+                           in: .userDomainMask))
+                }
         }
     }
 }

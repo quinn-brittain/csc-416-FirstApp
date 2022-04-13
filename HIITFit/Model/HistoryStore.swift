@@ -44,6 +44,12 @@ struct ExerciseDay: Identifiable {
 class HistoryStore: ObservableObject {
     @Published var exerciseDays: [ExerciseDay] = []
 
+    enum FileError: Error {
+        case loadFailure
+        case saveFailure
+        case urlFailure
+    }
+
     init() {}
 
     init(withChecking: Bool) throws {
@@ -59,6 +65,7 @@ class HistoryStore: ObservableObject {
     }
 
     func addDoneExercise(_ exerciseName: String) {
+        print(">>> Info: Saving History")
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
@@ -68,13 +75,38 @@ class HistoryStore: ObservableObject {
                 ExerciseDay(date: today, exercises: [exerciseName]),
                 at: 0)
         }
-        print(">>> Info: History:", exerciseDays)
+        do {
+            try save()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+        print(">>> Info: Saved History:", exerciseDays)
     }
 
-    enum FileError: Error {
-        case loadFailure
-        case saveFailure
-        case urlFailure
+    func getURL() -> URL? {
+        guard let documentsURL = FileManager.default.urls(
+            for: .documentDirectory, in: .userDomainMask).first else {
+                return nil
+            }
+        return documentsURL.appendingPathComponent("history.plist")
+    }
+
+    func save() throws {
+        guard let dataURL = getURL() else {
+            throw FileError.urlFailure
+        }
+        let plistData = exerciseDays.map {
+            [$0.id.uuidString, $0.date, $0.exercises]
+        }
+        do {
+            let data = try PropertyListSerialization.data(
+                fromPropertyList: plistData,
+                format: .binary,
+                options: .zero)
+            try data.write(to: dataURL, options: .atomic)
+        } catch {
+            throw FileError.saveFailure
+        }
     }
 
     func load() throws {
