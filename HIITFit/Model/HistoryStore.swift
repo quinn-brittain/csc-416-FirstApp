@@ -44,24 +44,40 @@ struct ExerciseDay: Identifiable {
 class HistoryStore: ObservableObject {
     @Published var exerciseDays: [ExerciseDay] = []
 
-    init() {
+    init() {}
+
+    init(withChecking: Bool) throws {
 //        #if DEBUG
 //        createDevData()
 //        #endif
-        print(">>> Initializing HistoryStore")
+        print(">>> Info: Initializing HistoryStore")
+        do {
+            try load()
+        } catch {
+            throw error
+        }
     }
 
     func addDoneExercise(_ exerciseName: String) {
         let today = Date()
         if let firstDate = exerciseDays.first?.date,
            today.isSameDay(as: firstDate) {
-            print("Adding \(exerciseName)")
             exerciseDays[0].exercises.append(exerciseName)
         } else {
             exerciseDays.insert(
                 ExerciseDay(date: today, exercises: [exerciseName]),
                 at: 0)
         }
-        print(">>> History: ", exerciseDays)
+        print(">>> Info: History:", exerciseDays)
+    }
+
+    enum FileError: Error {
+        case loadFailure
+        case saveFailure
+        case urlFailure
+    }
+
+    func load() throws {
+        throw FileError.loadFailure
     }
 }
