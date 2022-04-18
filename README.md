@@ -16,6 +16,8 @@ Some chapters had extra challenges added as part of an assignment.
   * [Chapter 8](https://github.com/quinn-brittain/csc-416-apps/tree/chapter8/)
   * [Chapter 9](https://github.com/quinn-brittain/csc-416-apps/tree/chapter9/)
   * [Chapter 10](https://github.com/quinn-brittain/csc-416-apps/tree/chapter10/)
+* Section 2: Cards
   * [Chapter 15](https://github.com/quinn-brittain/csc-416-apps/tree/chapter15/)
+* Section 3: RWFreeView
   * [Chapter 22](https://github.com/quinn-brittain/csc-416-apps/tree/chapter22/)
   * [Chapter 23](https://github.com/quinn-brittain/csc-416-apps/tree/chapter23/)
