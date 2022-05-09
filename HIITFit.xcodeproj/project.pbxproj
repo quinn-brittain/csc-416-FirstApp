@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A11663D27F16BCF00A6050F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11663C27F16BCF00A6050F /* TimerView.swift */; };
 		2A1166402828D16900A6050F /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11663F2828D16900A6050F /* RaisedButton.swift */; };
+		2A1166422828E23A00A6050F /* EmbossedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1166412828E23900A6050F /* EmbossedButton.swift */; };
 		2A9AAA4427C7647500825D5F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA4327C7647500825D5F /* WelcomeView.swift */; };
 		2A9AAA4627C764C700825D5F /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA4527C764C700825D5F /* ExerciseView.swift */; };
 		2A9AAA4927D71E4D00825D5F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9AAA4827D71E4D00825D5F /* HeaderView.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		2A11663C27F16BCF00A6050F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		2A11663F2828D16900A6050F /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
+		2A1166412828E23900A6050F /* EmbossedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButton.swift; sourceTree = "<group>"; };
 		2A9AAA4327C7647500825D5F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		2A9AAA4527C764C700825D5F /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		2A9AAA4827D71E4D00825D5F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				CD30C925251474DC0049DB93 /* ContentView.swift */,
 				2A9AAA4527C764C700825D5F /* ExerciseView.swift */,
+				2A1166412828E23900A6050F /* EmbossedButton.swift */,
 				2A9AAA4827D71E4D00825D5F /* HeaderView.swift */,
 				2A9AAA4E27D80EF300825D5F /* HistoryView.swift */,
 				2A9AAA4A27D727E400825D5F /* RatingView.swift */,
@@ -253,6 +256,7 @@
 				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
 				2A1166402828D16900A6050F /* RaisedButton.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,
+				2A1166422828E23A00A6050F /* EmbossedButton.swift in Sources */,
 				2A9AAA4F27D80EF300825D5F /* HistoryView.swift in Sources */,
 				2A9AAA4927D71E4D00825D5F /* HeaderView.swift in Sources */,
 			);
