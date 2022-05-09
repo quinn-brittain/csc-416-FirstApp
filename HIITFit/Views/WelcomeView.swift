@@ -35,26 +35,36 @@ import SwiftUI
 struct WelcomeView: View {
     @State private var showHistory = false
     @Binding var selectedTab: Int
-
+    
     var getStartedButton: some View {
-      RaisedButton(buttonText: "Get Started") {
-        selectedTab = 0
-      }
-      .padding()
+        RaisedButton(buttonText: "Get Started") {
+            selectedTab = 0
+        }
+        .padding()
     }
-
+    
+    var historyButton: some View {
+        Button(
+            action: {
+                showHistory = true
+            }, label: {
+                Text("History")
+                    .fontWeight(.bold)
+                    .padding([.leading, .trailing], 5)
+            })
+            .padding(.bottom, 10)
+            .buttonStyle(EmbossedButtonStyle())
+    }
+    
     var body: some View {
         ZStack {
             VStack {
                 HeaderView(selectedTab: $selectedTab, titleText: "Welcome")
                 Spacer()
-                Button("History") {
-                    showHistory.toggle()
-                }
-                .sheet(isPresented: $showHistory) {
-                    HistoryView(showHistory: $showHistory)
-                }
-                .padding(.bottom)
+                historyButton
+                    .sheet(isPresented: $showHistory) {
+                        HistoryView(showHistory: $showHistory)
+                    }
             }
             VStack {
                 HStack(alignment: .bottom) {

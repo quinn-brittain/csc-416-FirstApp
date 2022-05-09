@@ -52,6 +52,19 @@ struct ExerciseView: View {
         }
     }
 
+    var historyButton: some View {
+        Button(
+            action: {
+                showHistory = true
+            }, label: {
+                Text("History")
+                    .fontWeight(.bold)
+                    .padding([.leading, .trailing], 5)
+            })
+            .padding(.bottom, 10)
+            .buttonStyle(EmbossedButtonStyle())
+    }
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -94,13 +107,7 @@ struct ExerciseView: View {
                 Spacer()
                 RatingView(exerciseIndex: index)
                     .padding()
-                Button("History") {
-                    showHistory.toggle()
-                }
-                .sheet(isPresented: $showHistory) {
-                    HistoryView(showHistory: $showHistory)
-                }
-                .padding(.bottom)
+                historyButton
             }
         }
     }
