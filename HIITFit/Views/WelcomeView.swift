@@ -36,6 +36,13 @@ struct WelcomeView: View {
     @State private var showHistory = false
     @Binding var selectedTab: Int
 
+    var getStartedButton: some View {
+      RaisedButton(buttonText: "Get Started") {
+        selectedTab = 0
+      }
+      .padding()
+    }
+
     var body: some View {
         ZStack {
             VStack {
@@ -62,12 +69,7 @@ struct WelcomeView: View {
                         .clipShape(Circle())
                 }
                 // swiftlint:disable:next multiple_closures_with_trailing_closure
-                Button(action: { selectedTab = 0 }) {
-                    Text("Get Started")
-                        .raisedButtonTextStyle()
-                }
-                .buttonStyle(RaisedButtonStyle())
-                .padding()
+                getStartedButton
             }
         }
     }

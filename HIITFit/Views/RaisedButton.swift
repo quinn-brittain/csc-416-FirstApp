@@ -33,11 +33,17 @@
 import SwiftUI
 
 struct RaisedButton: View {
+    let buttonText: String
+    let action: () -> Void
+    
     var body: some View {
-        Button(action: {}, label: {
-            Text("Get Started")
+        Button(action: {
+            action()
+        }, label: {
+            Text(buttonText)
                 .raisedButtonTextStyle()
         })
+            .buttonStyle(RaisedButtonStyle())
     }
 }
 
@@ -66,9 +72,11 @@ extension Text {
 struct RaisedButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            RaisedButton()
-                .padding(20)
-                .buttonStyle(RaisedButtonStyle())
+            RaisedButton(buttonText: "Get Started") {
+                print("Hello World")
+            }
+            .padding(20)
+            .buttonStyle(RaisedButtonStyle())
         }
         .background(Color("background"))
         .previewLayout(.sizeThatFits)
