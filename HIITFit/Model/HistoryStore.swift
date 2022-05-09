@@ -1,4 +1,4 @@
-/// Copyright (c) 2022 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -29,102 +29,97 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
-//  Created by Quinn Brittain on 2/22/22.
-//
 
 import Foundation
 
 struct ExerciseDay: Identifiable {
-    let id = UUID()
-    let date: Date
-    var exercises: [String] = []
+  let id = UUID()
+  let date: Date
+  var exercises: [String] = []
 }
 
 class HistoryStore: ObservableObject {
-    @Published var exerciseDays: [ExerciseDay] = []
+  // swiftlint:disable:next array_constructor
+  @Published var exerciseDays: [ExerciseDay] = []
 
-    enum FileError: Error {
-        case loadFailure
-        case saveFailure
-        case urlFailure
+  enum FileError: Error {
+    case loadFailure
+    case saveFailure
+    case urlFailure
+  }
+
+  init() {}
+
+  init(withChecking: Bool) throws {
+    #if DEBUG
+    // createDevData()
+    #endif
+    do {
+      try load()
+    } catch {
+      throw error
     }
+  }
 
-    init() {}
-
-    init(withChecking: Bool) throws {
-//        #if DEBUG
-//        createDevData()
-//        #endif
-        print(">>> Info: Initializing HistoryStore")
-        do {
-            try load()
-        } catch {
-            throw error
-        }
+  func getURL() -> URL? {
+    guard let documentsURL = FileManager.default.urls(
+      for: .documentDirectory, in: .userDomainMask).first else {
+      return nil
     }
+    return documentsURL.appendingPathComponent("history.plist")
+  }
 
-    func addDoneExercise(_ exerciseName: String) {
-        print(">>> Info: Saving History")
-        let today = Date()
-        if let firstDate = exerciseDays.first?.date,
-           today.isSameDay(as: firstDate) {
-            exerciseDays[0].exercises.append(exerciseName)
-        } else {
-            exerciseDays.insert(
-                ExerciseDay(date: today, exercises: [exerciseName]),
-                at: 0)
-        }
-        do {
-            try save()
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-        print(">>> Info: Saved History:", exerciseDays)
+  func load() throws {
+    guard let dataURL = getURL() else {
+      throw FileError.urlFailure
     }
+    guard let data = try? Data(contentsOf: dataURL) else {
+      return
+    }
+    let plistData = try PropertyListSerialization.propertyList(
+      from: data,
+      options: [],
+      format: nil)
+    let convertedPlistData = plistData as? [[Any]] ?? []
+    exerciseDays = convertedPlistData.map {
+      ExerciseDay(
+        date: $0[1] as? Date ?? Date(),
+        exercises: $0[2] as? [String] ?? [])
+    }
+  }
 
-    func getURL() -> URL? {
-        guard let documentsURL = FileManager.default.urls(
-            for: .documentDirectory, in: .userDomainMask).first else {
-                return nil
-            }
-        return documentsURL.appendingPathComponent("history.plist")
+  func save() throws {
+    guard let dataURL = getURL() else {
+      throw FileError.urlFailure
     }
+    let plistData = exerciseDays.map {
+      [$0.id.uuidString, $0.date, $0.exercises]
+    }
+    do {
+      let data = try PropertyListSerialization.data(
+        fromPropertyList: plistData,
+        format: .binary,
+        options: .zero)
+      try data.write(to: dataURL, options: .atomic)
+    } catch {
+      throw FileError.saveFailure
+    }
+  }
 
-    func save() throws {
-        guard let dataURL = getURL() else {
-            throw FileError.urlFailure
-        }
-        let plistData = exerciseDays.map {
-            [$0.id.uuidString, $0.date, $0.exercises]
-        }
-        do {
-            let data = try PropertyListSerialization.data(
-                fromPropertyList: plistData,
-                format: .binary,
-                options: .zero)
-            try data.write(to: dataURL, options: .atomic)
-        } catch {
-            throw FileError.saveFailure
-        }
+  func addDoneExercise(_ exerciseName: String) {
+    let today = Date()
+    if let firstDate = exerciseDays.first?.date,
+      today.isSameDay(as: firstDate) {
+      exerciseDays[0].exercises.append(exerciseName)
+    } else {
+      exerciseDays.insert(
+        ExerciseDay(date: today, exercises: [exerciseName]),
+        at: 0)
     }
-
-    func load() throws {
-        guard let dataURL = getURL() else {
-          throw FileError.urlFailure
-        }
-        guard let data = try? Data(contentsOf: dataURL) else {
-            return
-        }
-        let plistData = try PropertyListSerialization.propertyList(
-            from: data,
-            options: [],
-            format: nil)
-        let convertedPlistData = plistData as? [[Any]] ?? []
-        exerciseDays = convertedPlistData.map {
-            ExerciseDay(
-                date: $0[1] as? Date ?? Date(),
-                exercises: $0[2] as? [String] ?? [])
-        }
+    do {
+      try save()
+    } catch {
+      fatalError(error.localizedDescription)
     }
+  }
 }

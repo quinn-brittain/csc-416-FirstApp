@@ -1,4 +1,4 @@
-/// Copyright (c) 2022 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -29,30 +29,27 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
-//  Created by Quinn Brittain on 2/22/22.
-//
 
 import SwiftUI
 
 struct ContentView: View {
-    @SceneStorage("selectedTab") private var selectedTab = 9
+  @SceneStorage("selectedTab") private var selectedTab = 9
 
-    var body: some View {
-        TabView(selection: $selectedTab) {
-            WelcomeView(selectedTab: $selectedTab)
-                .tag(9)
-            ForEach(0 ..< Exercise.exercises.count) { index in
-                ExerciseView(selectedTab: $selectedTab, index: index)
-                    .tag(index)
-            }
-        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+  var body: some View {
+    TabView(selection: $selectedTab) {
+      WelcomeView(selectedTab: $selectedTab)
+        .tag(9)
+      ForEach(0 ..< Exercise.exercises.count) { index in
+        ExerciseView(selectedTab: $selectedTab, index: index)
+          .tag(index)
+      }
     }
+    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

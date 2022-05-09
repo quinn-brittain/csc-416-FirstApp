@@ -1,4 +1,4 @@
-/// Copyright (c) 2022 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -29,29 +29,26 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
-//  Created by Quinn Brittain on 2/22/22.
-//
 
 import Foundation
 
 extension HistoryStore {
-    func createDevData() {
-        // Development data
-        exerciseDays = [
-            ExerciseDay(
-                date: Date().addingTimeInterval(-86400),
-                exercises: [
-                    Exercise.exercises[0].exerciseName,
-                    Exercise.exercises[1].exerciseName,
-                    Exercise.exercises[2].exerciseName
-                ]),
-            ExerciseDay(
-                date: Date().addingTimeInterval(-86400 * 2),
-                exercises: [
-                    Exercise.exercises[1].exerciseName,
-                    Exercise.exercises[0].exerciseName
-                ])
-        ]
-    }
+  func createDevData() {
+    // Development data
+    exerciseDays = [
+      ExerciseDay(
+        date: Date().addingTimeInterval(-86400),
+        exercises: [
+          Exercise.exercises[0].exerciseName,
+          Exercise.exercises[1].exerciseName,
+          Exercise.exercises[2].exerciseName
+        ]),
+      ExerciseDay(
+        date: Date().addingTimeInterval(-86400 * 2),
+        exercises: [
+          Exercise.exercises[1].exerciseName,
+          Exercise.exercises[0].exerciseName
+        ])
+    ]
+  }
 }

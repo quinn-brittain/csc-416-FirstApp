@@ -1,4 +1,4 @@
-/// Copyright (c) 2022 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -29,47 +29,43 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
-//  Created by Quinn Brittain on 2/22/22.
-//
 
 import SwiftUI
 
 struct SuccessView: View {
-    @Binding var selectedTab: Int
-
-    @Environment(\.presentationMode) var presentationMode
-
-    var body: some View {
-        ZStack {
-            VStack {
-                Spacer()
-                Button("Continue") {
-                    presentationMode.wrappedValue.dismiss()
-                    selectedTab = 9
-                }
-                .padding(.bottom)
-            }
-            VStack {
-                Image(systemName: "hand.raised.fill")
-                    .foregroundColor(Color.purple)
-                    .font(.system(size: 100))
-                Text("High Five!")
-                    .font(.largeTitle)
-                    .bold()
-                Group {
-                    Text("Good job completing all four execises!")
-                    Text("Remember tomorrow's another day.")
-                    Text("So eat well and get some rest.")
-                }
-                .foregroundColor(Color.gray)
-            }
+  @Environment(\.presentationMode) var presentationMode
+  @Binding var selectedTab: Int
+  var body: some View {
+    ZStack {
+      VStack {
+        Image(systemName: "hand.raised.fill")
+          .resizedToFill(width: 75, height: 75)
+          .foregroundColor(.purple)
+        Text("High Five!")
+          .font(.largeTitle)
+          .fontWeight(.heavy)
+        Text("""
+          Good job completing all four exercises!
+          Remember tomorrow's another day.
+          So eat well and get some rest.
+          """)
+          .multilineTextAlignment(.center)
+          .foregroundColor(.gray)
+      }
+      VStack {
+        Spacer()
+        Button("Continue") {
+          selectedTab = 9
+          presentationMode.wrappedValue.dismiss()
         }
+        .padding()
+      }
     }
+  }
 }
 
 struct SuccessView_Previews: PreviewProvider {
-    static var previews: some View {
-        SuccessView(selectedTab: .constant(3))
-    }
+  static var previews: some View {
+    SuccessView(selectedTab: .constant(3))
+  }
 }

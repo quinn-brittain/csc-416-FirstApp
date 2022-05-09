@@ -1,4 +1,4 @@
-/// Copyright (c) 2022 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -29,43 +29,40 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
-//  Created by Quinn Brittain on 2/22/22.
-//
 
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var selectedTab: Int
-    let titleText: String
+  @Binding var selectedTab: Int
+  let titleText: String
 
-    var body: some View {
-        VStack {
-            Text(titleText)
-                .font(.largeTitle)
-            HStack {
-                ForEach(0 ..< Exercise.exercises.count) { index in
-                    let fill = index == selectedTab ? ".fill" : ""
-                    Image(systemName: "\(index + 1).circle\(fill)")
-                        .onTapGesture {
-                          selectedTab = index
-                        }
-                }
+  var body: some View {
+    VStack {
+      Text(titleText)
+        .font(.largeTitle)
+      HStack {
+        ForEach(0 ..< Exercise.exercises.count) { index in
+          let fill = index == selectedTab ? ".fill" : ""
+          Image(systemName: "\(index + 1).circle\(fill)")
+            .onTapGesture {
+              selectedTab = index
             }
-            .font(.title2)
         }
+      }
+      .font(.title2)
     }
+  }
 }
 
 struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            HeaderView(selectedTab: .constant(0), titleText: "Squat")
-                .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab: .constant(1), titleText: "Squat")
-                .preferredColorScheme(.dark)
-                .environment(\.sizeCategory, .accessibilityLarge)
-                .previewLayout(.sizeThatFits)
-        }
+  static var previews: some View {
+    Group {
+      HeaderView(selectedTab: .constant(0), titleText: "Squat")
+        .previewLayout(.sizeThatFits)
+      HeaderView(selectedTab: .constant(1), titleText: "Step Up")
+        .preferredColorScheme(.dark)
+        .environment(\.sizeCategory, .accessibilityLarge)
+        .previewLayout(.sizeThatFits)
     }
+  }
 }

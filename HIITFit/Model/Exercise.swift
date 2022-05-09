@@ -1,4 +1,4 @@
-/// Copyright (c) 2022 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -29,37 +29,34 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
-//  Created by Quinn Brittain on 2/22/22.
-//
 
 import Foundation
 
 struct Exercise {
-    let exerciseName: String
-    let videoName: String
+  let exerciseName: String
+  let videoName: String
 
-    enum ExerciseEnum: String {
-        case squat = "Squat"
-        case stepUp = "Step Up"
-        case burpee = "Burpee"
-        case sunSalute = "Sun Salute"
-    }
+  enum ExerciseEnum: String {
+    case squat = "Squat"
+    case stepUp = "Step Up"
+    case burpee = "Burpee"
+    case sunSalute = "Sun Salute"
+  }
 }
 
 extension Exercise {
-    static let exercises = [
-        Exercise(
-            exerciseName: ExerciseEnum.squat.rawValue,
-            videoName: "squat"),
-        Exercise(
-            exerciseName: ExerciseEnum.stepUp.rawValue,
-            videoName: "step-up"),
-        Exercise(
-            exerciseName: ExerciseEnum.burpee.rawValue,
-            videoName: "burpee"),
-        Exercise(
-            exerciseName: ExerciseEnum.sunSalute.rawValue,
-            videoName: "sun-salute")
-    ]
+  static let exercises = [
+    Exercise(
+      exerciseName: ExerciseEnum.squat.rawValue,
+      videoName: "squat"),
+    Exercise(
+      exerciseName: ExerciseEnum.stepUp.rawValue,
+      videoName: "step-up"),
+    Exercise(
+      exerciseName: ExerciseEnum.burpee.rawValue,
+      videoName: "burpee"),
+    Exercise(
+      exerciseName: ExerciseEnum.sunSalute.rawValue,
+      videoName: "sun-salute")
+  ]
 }
