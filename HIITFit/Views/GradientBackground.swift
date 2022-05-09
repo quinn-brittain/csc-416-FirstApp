@@ -1,4 +1,4 @@
-/// Copyright (c) 2021 Razeware LLC
+/// Copyright (c) 2022 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -32,58 +32,33 @@
 
 import SwiftUI
 
-struct WelcomeView: View {
-    @State private var showHistory = false
-    @Binding var selectedTab: Int
-
-    var getStartedButton: some View {
-        RaisedButton(buttonText: "Get Started") {
-            selectedTab = 0
-        }
-        .padding()
+struct GradientBackground: View {
+    var gradient: Gradient {
+        let color1 = Color("gradient-top")
+        let color2 = Color("gradient-bottom")
+        let background = Color("background")
+        return Gradient(
+            stops: [
+                Gradient.Stop(color: color1, location: 0),
+                Gradient.Stop(color: color2, location: 0.9),
+                Gradient.Stop(color: background, location: 0.9),
+                Gradient.Stop(color: background, location: 1)
+            ])
     }
-
-    var historyButton: some View {
-        Button(
-            action: {
-                showHistory = true
-            }, label: {
-                Text("History")
-                    .fontWeight(.bold)
-                    .padding([.leading, .trailing], 5)
-            })
-            .padding(.bottom, 10)
-            .buttonStyle(EmbossedButtonStyle())
-    }
-
+    
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                HeaderView(
-                    selectedTab: $selectedTab,
-                    titleText: "Welcome")
-                Spacer()
-                // container view
-                ContainerView {
-                    VStack {
-                        WelcomeView.images
-                        WelcomeView.welcomeText
-                        getStartedButton
-                        Spacer()
-                        historyButton
-                    }
-                }
-                .frame(height: geometry.size.height * 0.8)
-            }
-            .sheet(isPresented: $showHistory) {
-                HistoryView(showHistory: $showHistory)
-            }
-        }
+        LinearGradient(
+            gradient: gradient,
+            startPoint: .top,
+            endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
-struct WelcomeView_Previews: PreviewProvider {
+struct GradientBackground_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView(selectedTab: .constant(9))
+        GradientBackground()
+            .frame(width: 300, height: 300)
+            .previewLayout(.sizeThatFits)
     }
 }
